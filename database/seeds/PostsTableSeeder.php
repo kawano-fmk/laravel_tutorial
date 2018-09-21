@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
 
-class DatabaseSeeder extends Seeder
+
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,7 +12,9 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
+
     {
-      $this->call(PostsTableSeeder::class);
+        DB::table('posts')->truncate();
+        factory(App\Post::class, 50)->create();
     }
 }
